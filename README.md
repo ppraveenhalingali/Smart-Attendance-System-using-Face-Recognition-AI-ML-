@@ -1,95 +1,88 @@
-📸 Smart Attendance System using Face Recognition (AI + ML)
 
-An automated attendance management system that uses face recognition to identify registered users in real time and mark attendance digitally using a webcam. This project reduces manual effort, prevents proxy attendance, and provides an easy-to-use web interface for viewing and downloading attendance records.
+# 📸 Smart Attendance System (AI + ML)
 
-🚀 Features
+An automated attendance management system leveraging **Computer Vision** and **Deep Learning**. This system captures student faces, trains a recognition model, and logs attendance into a CSV file in real-time via a Streamlit web interface or a standalone Python script.
 
-1. Real-time face detection and recognition
+## ✨ Features
 
-2. Automatic attendance marking with time
-
-3. Web-based interface using Streamlit
-
-4. CSV export of attendance records
-
-5. Prevents duplicate entries per session/day
-
-6. Simple and user-friendly UI
-
-🛠️ Technologies Used
-
-1. Python
-
-2. OpenCV
-
-3. face_recognition (dlib-based ML library)
-
-4. Streamlit
-
-5. Pandas, NumPy
-
-5. Pickle
-
-📂 Project Structure
-Smart-Attendance-System/
-│
-├── dataset/                 # Collected student images
-├── capture_faces.py         # Capture images for each student
-├── train_faces.py           # Train and save face encodings
-├── encoded_faces.pkl        # Trained face data
-├── app.py                   # Streamlit web app
-├── attendance.csv           # Attendance records
-├── mark_attendance.py       # (Optional) CLI-based attendance
-├── recognize_attendance.py # (Optional) Alternative recognition
-└── README.md
-
-⚙️ Installation
-
-Clone the repository
-
-git clone https://github.com/your-username/smart-attendance-system.git
-cd smart-attendance-system
+* 
+**Real-time Face Recognition**: Utilizes `face_recognition` (dlib-based) to identify students with high accuracy.
 
 
-Install required libraries
+* 
+**Dual Interface**: Supports both a **Streamlit Web App** (`app.py`) and a **CLI/OpenCV window** (`mark_attendance.py`).
 
-pip install opencv-python face_recognition streamlit pandas numpy
+
+* **Automated Data Collection**: Easy-to-use script to capture 20 images per student to build a robust dataset.
+* **Intelligent Logging**: Prevents duplicate entries by checking if a student has already been marked for the current day.
+* **Data Export**: Attendance is saved in `attendance.csv` for easy integration with Excel or HR tools.
+
+## 📂 Project Structure
+
+* `capture_faces.py`: Captures and saves student images to the `dataset/` folder.
+* `train_faces.py`: Generates 128-d facial encodings and saves them to `encoded_faces.pkl`.
+* 
+`app.py`: The main Streamlit dashboard for monitoring and running the system.
 
 
-⚠️ Note: face_recognition requires dlib. On Windows, install precompiled wheels if needed.
+* `mark_attendance.py`: A lightweight script for running recognition without the web UI.
+* `attendance.csv`: The local database storing Name, Date, and Time of arrival.
 
-▶️ How to Run
-Step 1: Capture Faces
+## 🚀 How to Run
+
+### 1. Setup Environment
+
+Ensure you have Python installed, then install the required libraries:
+
+```bash
+pip install streamlit opencv-python face_recognition numpy pandas
+
+```
+
+### 2. Capture Student Data
+
+Run the capture script and enter the student's name when prompted. It will automatically take 20 photos using your webcam.
+
+```bash
 python capture_faces.py
 
-Step 2: Train the Model
+```
+
+### 3. Train the Model
+
+Process the images in the `dataset` folder to create the facial encoding file:
+
+```bash
 python train_faces.py
 
-Step 3: Run the Web App
+```
+
+### 4. Launch Attendance System
+
+You can run the web-based version:
+
+```bash
 streamlit run app.py
 
-📊 Output
+```
 
-Live camera feed with bounding box and name
+Or the standard version:
 
-Automatic attendance marking
+```bash
+python mark_attendance.py
 
-Attendance stored in attendance.csv
+```
 
-Download option from web interface
+## 📊 Technical Workflow
 
-📈 Results
+1. 
+**Detection**: The system identifies the location of faces in a video frame using HOG (Histogram of Oriented Gradients).
 
-The system accurately recognizes registered users in real time under normal lighting conditions and marks attendance automatically. Minor errors may occur under low light or unclear face angles.
 
-🚀 Future Scope
+2. **Encoding**: It transforms facial features into a 128-dimensional vector.
+3. **Matching**: It calculates the Euclidean distance between the live face and the known database. A match is confirmed if the distance is below a threshold (e.g., 0.45).
 
-Cloud database integration
 
-Mobile app support
+4. **Logging**: If a match is found, the system verifies the date and appends a new record to the CSV.
 
-Multi-camera support
-
-Advanced deep learning models
-
-Analytics and reports
+---
