@@ -4,31 +4,31 @@ An automated attendance management system that uses face recognition to identify
 
 🚀 Features
 
-Real-time face detection and recognition
+1. Real-time face detection and recognition
 
-Automatic attendance marking with time
+2. Automatic attendance marking with time
 
-Web-based interface using Streamlit
+3. Web-based interface using Streamlit
 
-CSV export of attendance records
+4. CSV export of attendance records
 
-Prevents duplicate entries per session/day
+5. Prevents duplicate entries per session/day
 
-Simple and user-friendly UI
+6. Simple and user-friendly UI
 
 🛠️ Technologies Used
 
-Python
+1. Python
 
-OpenCV
+2. OpenCV
 
-face_recognition (dlib-based ML library)
+3. face_recognition (dlib-based ML library)
 
-Streamlit
+4. Streamlit
 
-Pandas, NumPy
+5. Pandas, NumPy
 
-Pickle
+5. Pickle
 
 📂 Project Structure
 Smart-Attendance-System/
