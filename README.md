@@ -66,10 +66,7 @@ python mark_attendance.py
 
 ## 📊 Technical Workflow
 
-1. 
-**Detection**: The system identifies the location of faces in a video frame using HOG (Histogram of Oriented Gradients).
-
-
+1. **Detection**: The system identifies the location of faces in a video frame using HOG (Histogram of Oriented Gradients).
 2. **Encoding**: It transforms facial features into a 128-dimensional vector.
 3. **Matching**: It calculates the Euclidean distance between the live face and the known database. A match is confirmed if the distance is below a threshold (e.g., 0.45).
 
