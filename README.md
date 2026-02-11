@@ -5,14 +5,8 @@ An automated attendance management system leveraging **Computer Vision** and **D
 
 ## ✨ Features
 
-* 
-**Real-time Face Recognition**: Utilizes `face_recognition` (dlib-based) to identify students with high accuracy.
-
-
-* 
-**Dual Interface**: Supports both a **Streamlit Web App** (`app.py`) and a **CLI/OpenCV window** (`mark_attendance.py`).
-
-
+* **Real-time Face Recognition**: Utilizes `face_recognition` (dlib-based) to identify students with high accuracy.
+* **Dual Interface**: Supports both a **Streamlit Web App** (`app.py`) and a **CLI/OpenCV window** (`mark_attendance.py`)
 * **Automated Data Collection**: Easy-to-use script to capture 20 images per student to build a robust dataset.
 * **Intelligent Logging**: Prevents duplicate entries by checking if a student has already been marked for the current day.
 * **Data Export**: Attendance is saved in `attendance.csv` for easy integration with Excel or HR tools.
@@ -21,10 +15,7 @@ An automated attendance management system leveraging **Computer Vision** and **D
 
 * `capture_faces.py`: Captures and saves student images to the `dataset/` folder.
 * `train_faces.py`: Generates 128-d facial encodings and saves them to `encoded_faces.pkl`.
-* 
-`app.py`: The main Streamlit dashboard for monitoring and running the system.
-
-
+* `app.py`: The main Streamlit dashboard for monitoring and running the system.
 * `mark_attendance.py`: A lightweight script for running recognition without the web UI.
 * `attendance.csv`: The local database storing Name, Date, and Time of arrival.
 
